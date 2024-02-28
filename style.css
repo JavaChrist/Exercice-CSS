@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+@font-face {
+  font-family: "DMSerif";
+  src: url(./assets/fonts/DMSans-VariableFont_opsz\wght.ttf);
+}
+
+body {
+  font-family: DMSerif, verdana;
+  background: url(./assets/images/Planet.jpg) center/cover;
+  min-height: 100vh;
+}
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  font-size: 2.5rem;
+  text-shadow: 4px 0px 13px black;
+  color: rgba(107, 14, 35, 0.863);
+  font-family: "oswald", sans-serif;
+}
+
+main {
+  min-height: 500px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.596);
+  margin: 0 auto;
+  border: 2px solid blue;
+  border-radius: 20px;
+  box-shadow: 3px -4px 17px 8px #851a1a;
+  padding: 15px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.flexbox,
+.grid,
+.absolute {
+  border: 2px solid skyblue;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  min-height: 150px;
+}
+
+.flexbox ul {
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flexbox li {
+  list-style: none;
+  height: 160px;
+  width: 160px;
+  margin: 10px;
+  background: rgba(255, 0, 0, 0.342);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Grid  */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.grid img {
+  width: 80%;
+  margin: 20px auto;
+  display: block;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "i1 i2"
+    "ta ta"
+    "vi bt";
+}
+
+input,
+textarea {
+  margin: 5px;
+  border: 1px solid darkblue;
+  padding: 10px;
+  font-size: 1.1rem;
+  font-family: "DMSerif";
+  border-radius: 5px;
+}
+
+textarea {
+  grid-area: ta;
+  height: 40px;
+  resize: none;
+}
+
+#btn-submit {
+  grid-area: bt;
+  cursor: pointer;
+  background: cyan;
+  transition: 0.2s;
+}
+
+#btn-submit:hover {
+  background: darkblue;
+  color: white;
+}
+
+/* Sans élément en relative, de base, l'élément en absolute l'est par rapport au body  */
+/* Il faut mettre une position relative au parent pour contraidre l'élément en absolute dans ses frontiières  */
+
+.absolute {
+  position: relative;
+}
+
+#circle1 {
+  height: 80px;
+  width: 80px;
+  background: skyblue;
+  position: absolute;
+  border-radius: 150px;
+  top: 0;
+  right: 0;
+}
+
+#circle2 {
+  height: 40px;
+  width: 40px;
+  background: green;
+  position: absolute;
+  border-radius: 150px;
+  left: 50%; /*  tu te mais a 50% */
+  transform: translateX(-50%); /* et 50% de ta propre taille*/
+  top: 100px;
+}
+
+@media screen and (max-width: 900px) {
+  .grid-container {
+    display: block;
+  }
+  .grid-container img {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .flexbox ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "il"
+      "i2"
+      "ta"
+      "bt";
+  }
+  input,
+  textaera {
+    font-size: 0.8em;
+  }
+}
